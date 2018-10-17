@@ -24,3 +24,5 @@ router.route('/').post(function(req,res){
             res.status(400).send("Unable to add post");
         })
 })
+
+module.exports = router;

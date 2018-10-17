@@ -1,0 +1,22 @@
+{
+  "name": "nodefb",
+  "version": "1.0.0",
+  "description": "Node FB Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janitha000/NodeFB.git"
+  },
+  "keywords": [
+    "Node"
+  ],
+  "author": "Janitha Tennakoon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janitha000/NodeFB/issues"
+  },
+  "homepage": "https://github.com/janitha000/NodeFB#readme"
+}

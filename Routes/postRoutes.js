@@ -4,18 +4,18 @@ const router = express.Router();
 
 const Post = require('../Models/post');
 
-router.route('/').get(function(req,res) {
-    Post.find(function(err, posts){
-        if(err)
-            console.log(err)
-
-        res.json(posts);
-    })       
+router.route('/').get(function (req, res) {
+    Post.find()
+        .then((posts) => {
+            res.send(JSON.stringify(posts));
+        })
+        .catch(() => { res.send('Sorry! Something went wrong.'); });
 })
 
-router.route('/').post(function(req,res){
+router.route('/').post(function (req, res) {
+    console.log(req.body);
     post = new Post(req.body);
-    Post.save()
+    post.save()
         .then((post) => {
             res.status(200).send("Post added");
 

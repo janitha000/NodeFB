@@ -12,6 +12,11 @@ app.get('/', (req,res) =>{
     res.send("Hello Node.js server");
 })
 
+app.use((err,req,res,next) => {
+    console.log(err);
+    res.status(500).send('Internal server error');
+})
+
 app.listen(port, (err) =>{
     if(err)
         return console.log('Error', err)

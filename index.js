@@ -22,11 +22,5 @@ app.use((err,req,res,next) => {
     res.status(500).send('Internal server error');
 })
 
-const port = process.env.PORT || 3000;
+module.exports = app
 
-app.listen(port, (err) =>{
-    if(err)
-        return console.log('Error', err)
-    
-    console.log('Server is listening at port :' + port);
-})

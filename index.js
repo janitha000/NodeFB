@@ -4,7 +4,8 @@ const app = express()
 
 const postRoutes = require('./Routes/postRoutes');
 
-app.use(bodyParser.urlencoded({extended : true}))
+//app.use(bodyParser.urlencoded({extended : true}))
+app.use(bodyParser.json({ extended : true}))
 
 app.get('/', (req,res) =>{
     res.send("Hello Node.js server");

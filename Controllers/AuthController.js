@@ -1,10 +1,3 @@
-const express = require('express')
-const authRouter = express.Router();
-
-var bodyParser = require('body-parser');
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
-
 const User = require('../Models/user');
 
 const jwt = require('jsonwebtoken');
@@ -12,7 +5,7 @@ const bcrypt = require('bcryptjs');
 
 const secret = process.env.SECRET;
 
-authRouter.route('/register').post(function(req,res) {
+exports.register = function(req,res) {
     var hashedPassword = bcrypt.hashSync(req.body.password);
 
     user = new User({
@@ -32,5 +25,5 @@ authRouter.route('/register').post(function(req,res) {
         .catch(err => {
             res.status(500).send("Internal server error when registering the user " + err)
         })
-})
+}
 

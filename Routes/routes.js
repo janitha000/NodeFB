@@ -14,6 +14,7 @@ router.route('/post').get(postController.getPosts);
 router.route('/post').post(postController.postPosts);
 
 router.route('/register').post(authController.register);
+router.route('/login').post(authController.login);
 
 router.route('/user/me').get(userController.getMe);
 

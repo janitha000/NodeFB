@@ -30,20 +30,22 @@ exports.register = function (req, res) {
 exports.login = function (req, res) {
     User.findOne({ name: req.body.name })
         .then((user => {
+            if(!user)
+                return res.status(401).send('User not available');
+
             var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
             if (!passwordIsValid)
-                res.status(401).send({ suth: false, token: null });
+                return res.status(401).send({ suth: false, token: null });
 
             var token = jwt.sign({ id: user._id }, process.env.SECRET, {
                 expiresIn: 86400
             });
 
-            res.send(200).send({ auth: true, token: token });
+            res.status(200).send({ auth: true, token: token });
+        }))
+        .catch(err => {
+            console.log(err);
+            return res.status(500).send('Error on the server.');
         })
-            .catch(err => {
-                console.log(err);
-                return res.status(500).send('Error on the server.');
-            })
-        )
 }
 

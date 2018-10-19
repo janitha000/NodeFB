@@ -6,16 +6,18 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
+const verifyToken = require('../auth/VerifyToken')
+
 const postController = require('../Controllers/postController');
 const authController = require('../Controllers/AuthController');
 const userController = require('../Controllers/UserController');
 
-router.route('/post').get(postController.getPosts);
-router.route('/post').post(postController.postPosts);
+router.get('/post', verifyToken, postController.getPosts);
+router.post('/post', verifyToken, postController.postPosts);
 
-router.route('/register').post(authController.register);
-router.route('/login').post(authController.login);
+router.post('/register', authController.register);
+router.post('/login', authController.login);
 
-router.route('/user/me').get(userController.getMe);
+router.get('/user/me', verifyToken, userController.getMe);
 
 module.exports = router;

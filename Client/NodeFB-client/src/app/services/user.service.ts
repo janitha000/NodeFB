@@ -17,8 +17,10 @@ export class UserService {
   }
 
   login(name: string, password: string) {
+    console.log(name + password)
     return this.http.post<any>('http://localhost:3000/login', { name: name, password: password })
       .pipe(map(user => {
+        console.log("Came");
         if (user.token) {
           localStorage.setItem('current-token', JSON.stringify(user.token));
         }
@@ -31,4 +33,6 @@ export class UserService {
   logout() {
     localStorage.removeItem('current-token');
   }
+
+
 }

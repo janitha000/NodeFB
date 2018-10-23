@@ -1,0 +1,9 @@
+<div class="jumbotron"> 
+    <ul>
+        <li *ngFor="let post of posts">
+          <a routerLink="">{{ post.name }}</a>
+      
+          <p>{{ post.content }}</p>
+        </li>
+      </ul>
+</div>

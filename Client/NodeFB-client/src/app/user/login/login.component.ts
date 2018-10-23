@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.login(this.loginForm.controls.name.value, this.loginForm.controls.password.value)
       .subscribe( data => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       },
       error => {
         

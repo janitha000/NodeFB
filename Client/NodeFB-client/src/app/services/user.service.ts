@@ -31,6 +31,4 @@ export class UserService {
   logout() {
     localStorage.removeItem('current-token');
   }
-
-
 }

@@ -17,8 +17,9 @@ export class HomeviewComponent implements OnInit {
     this.postService.getAllPosts().subscribe( data => {
       this.posts = data;
     },
-    error => this.toastr.error(error.message, "ERROR"  )
+    error => this.toastr.error(error.error.message, "Error")
   )}
+
 }
 
 

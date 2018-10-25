@@ -14,7 +14,7 @@ exports.postPosts = function (req, res) {
     post = new Post(req.body);
     post.save()
         .then((post) => {
-            res.status(200).send("Post added");
+            res.status(200).send(JSON.stringify("Post added"));
 
         })
         .catch(err => {

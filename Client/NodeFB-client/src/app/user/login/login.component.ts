@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { UserService } from '../../services/user.service'
+import { EventEmitter } from '@angular/core';
+import { Output } from '@angular/core';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { UserService } from '../../services/user.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+  loginForm: FormGroup; 
 
   constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute,
     private userService: UserService) { }
@@ -29,7 +31,9 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.login(this.loginForm.controls.name.value, this.loginForm.controls.password.value)
       .subscribe( data => {
-        this.router.navigate(['/home']);
+        window.location.href = '/home';
+        //this.router.navigate(['/']);
+        
       },
       error => {
         

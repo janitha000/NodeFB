@@ -16,6 +16,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { RootviewComponent } from './home/rootview/rootview.component';
 import { HomeviewComponent } from './home/homeview/homeview.component';
+import { PostComponent } from './post/post/post.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomeviewComponent } from './home/homeview/homeview.component';
     RegisterComponent,
     LoginComponent,
     RootviewComponent,
-    HomeviewComponent
+    HomeviewComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

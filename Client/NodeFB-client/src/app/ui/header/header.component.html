@@ -9,12 +9,14 @@
   </div>
   <div class="navbar-expand ml-auto navbar-nav">
     <div class="navbar-nav">
-      <a routerLink="/login" class="nav-item nav-link" >
+      <a [hidden] = "loggedIn" routerLink="/login" class="nav-item nav-link" >
         <i class="fa fa-sign-in"> Sign in</i>
       </a>
-      <a (click)="onLogOut()" class="nav-item nav-link" >
+      <a [hidden] = "!loggedIn" class="nav-item nav-link">{{Name}}</a>
+      <a [hidden] = "!loggedIn" (click)="onLogOut()" class="nav-item nav-link" >
         <i class="fa fa-sign-in"> Sign out</i>
       </a>
+      
       <!-- <a class="nav-item nav-link" href="https://twitter.com/beeman_nl" target="_blank">
         <i class="fa fa-twitter"></i>
       </a>

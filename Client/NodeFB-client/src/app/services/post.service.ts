@@ -17,4 +17,12 @@ export class PostService {
         return posts;
       }) )
   }
+
+  postPost(name : string, postContent : string) {
+    var post = {
+      "name" : name,
+      "content" : postContent
+    }
+    return this.http.post('http://localhost:3000/post', post);    
+  }
 }

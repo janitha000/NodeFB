@@ -1,14 +1,13 @@
-const jwt = require('jsonwebtoken');
+const User = require('../Models/user');
 
-exports.getMe = function(req,res){
-    var token = req.headers['x-access-token'];
-    if(!token)
-        return res.status(401).send({auth: false, message : 'No token provided'});
+exports.getUser = function(req,res){
+    var userName = req.params['name'];
 
-    jwt.verify(token, process.env.SECRET, function(err, decoded){
-        if(err)
-            return res.status(500).send({auth : false, message : 'Failed to authenticate'})
-
-        res.status(200).send(decoded);
-    })
+    User.findOne({name : userName} )
+        .then(user => {
+            res.send(JSON.stringify(user));
+        })
+        .catch(err =>{
+            res.status(500).send(JSON.stringify("Internal error when getting user"));
+        })
 }

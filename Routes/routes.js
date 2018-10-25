@@ -18,6 +18,5 @@ router.post('/post', verifyToken, postController.postPosts);
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 
-router.get('/user/me', verifyToken, userController.getMe);
-
+router.get('/user/:name', verifyToken, userController.getUser)
 module.exports = router;

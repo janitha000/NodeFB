@@ -52,5 +52,7 @@ export class UserService {
     return this.fireIsLoggedIn;
   }
 
-
+  getUser(name : string){
+    return this.http.get('http://localhost:3000/user/' + name);
+  }
 }

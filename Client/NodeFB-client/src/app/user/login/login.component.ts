@@ -31,9 +31,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.login(this.loginForm.controls.name.value, this.loginForm.controls.password.value)
       .subscribe( data => {
-        window.location.href = '/home';
-        //this.router.navigate(['/']);
-        
+        window.location.href = '/home';     
       },
       error => {
         

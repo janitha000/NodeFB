@@ -12,7 +12,7 @@
       <a [hidden] = "loggedIn" routerLink="/login" class="nav-item nav-link" >
         <i class="fa fa-sign-in"> Sign in</i>
       </a>
-      <a [hidden] = "!loggedIn" class="nav-item nav-link">{{Name}}</a>
+      <a [hidden] = "!loggedIn" (click) ="onProfileClick()" class="nav-item nav-link">{{Name}}</a>
       <a [hidden] = "!loggedIn" (click)="onLogOut()" class="nav-item nav-link" >
         <i class="fa fa-sign-in"> Sign out</i>
       </a>

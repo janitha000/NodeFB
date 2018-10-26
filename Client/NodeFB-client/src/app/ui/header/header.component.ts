@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
 export class HeaderComponent implements OnInit {
   Name: string;
   loggedIn: boolean;
+  profileUrl : string;
   private user = new Subject();
   public user$ = this.user.asObservable();
 
@@ -27,6 +28,7 @@ export class HeaderComponent implements OnInit {
 
     this.userService.getEmitter().subscribe((customObject) => {
       this.loggedIn = true;
+     
       console.log("Component is notified of successfull login!");
     });
   }
@@ -45,6 +47,11 @@ export class HeaderComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  onProfileClick() {
+    this.profileUrl = "/profile/" + this.Name;
+    this.router.navigate([this.profileUrl]);
   }
 
 }

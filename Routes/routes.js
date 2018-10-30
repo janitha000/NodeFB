@@ -11,6 +11,7 @@ const verifyToken = require('../auth/VerifyToken')
 const postController = require('../Controllers/postController');
 const authController = require('../Controllers/AuthController');
 const userController = require('../Controllers/UserController');
+const statController = require('../Controllers/StatController');
 
 router.get('/post', verifyToken, postController.getPosts);
 router.post('/post', verifyToken, postController.postPosts);
@@ -18,5 +19,7 @@ router.post('/post', verifyToken, postController.postPosts);
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 
-router.get('/user/:name', verifyToken, userController.getUser)
+router.get('/user/:name', verifyToken, userController.getUser);
+
+router.get('/stat', statController.getStatistics);
 module.exports = router;

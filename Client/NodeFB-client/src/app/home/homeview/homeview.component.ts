@@ -25,7 +25,6 @@ export class HomeviewComponent implements OnInit {
     var profileUrl = "/profile/" + name;
     this.router.navigate([profileUrl]);
   }
-
 }
 
 

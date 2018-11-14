@@ -17,11 +17,17 @@ export class WebSocketService {
     this.socket.emit('newMessage', message);
   }
 
-  public getMessages = () => {
-    return Observable.create((observer) => {
-      this.socket.on('newMessage', (message) => {
-        observer.next(message);
-      });
-    });
-  }
+  // public getMessages = () => {
+  //   return Observable.create((observer) => {
+  //     this.socket.on('newMessage', (message) => {
+  //       observer.next(message);
+  //     });
+  //   });
+  // }
+
+  public getMessages(): Observable<any> {
+        return new Observable<any>(observer => {
+            this.socket.on('newMessage', (message: string) => observer.next(message));
+        });
+    }
 }

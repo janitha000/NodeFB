@@ -28,13 +28,13 @@ var socketio = require('socket.io').listen(server);
 
 socketio.on('connection', function(socket){
     console.log('New user connected');
-    socket.emit('newMessage', 'A user connected');
+    socketio.emit('newMessage', 'A user connected');
     socket.on('disconnect', function(){
         console.log('User disconnected');
     })
 
     socket.on('newMessage', function(message){
         console.log("New message: "  + message);
-        socket.emit(message);
+        socketio.emit('newMessage', message);
     })
 });

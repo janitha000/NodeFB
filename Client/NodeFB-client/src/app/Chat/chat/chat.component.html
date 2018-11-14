@@ -11,5 +11,9 @@
 </form>
 
 <div class ="jumbotron">
-  {{messages}}
+    <ul>
+        <li *ngFor="let message of messages">     
+          <p>{{ message}}</p>
+        </li>
+      </ul>
 </div>

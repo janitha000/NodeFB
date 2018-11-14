@@ -12,8 +12,6 @@ export class ChatComponent implements OnInit {
   messages : string[] = [];
   chatForm : FormGroup;
 
-
-
   constructor(private socketService: WebSocketService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -21,6 +19,7 @@ export class ChatComponent implements OnInit {
       .subscribe((message : string) => {
         console.log(message);
         this.messages.push(message);
+        console.log(this.messages);
       })
 
       this.chatForm = this.formBuilder.group({

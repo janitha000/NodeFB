@@ -3,8 +3,10 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 const app = express()
 
-app.use(cors());
-app.options('*', cors())
+
+app.use(cors({credentials: true, origin: true}));
+app.options('*', cors({credentials: true, origin: true}))
+
 
 const postRoutes = require('./Routes/postRoutes');
 const authRoutes = require('./Controllers/AuthController')
@@ -19,6 +21,8 @@ app.use((err,req,res,next) => {
     console.log(err);
     res.status(500).send('Internal server error');
 })
+
+
 
 module.exports = app
 

@@ -18,6 +18,10 @@ import { RootviewComponent } from './home/rootview/rootview.component';
 import { HomeviewComponent } from './home/homeview/homeview.component';
 import { PostComponent } from './post/post/post.component';
 import { ProfileComponent } from './profile/profile/profile.component';
+import { StatComponent } from './stat/stat/stat.component';
+
+import {WebSocketService} from './Chat/web-socket.service';
+import { ChatComponent } from './Chat/chat/chat.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +31,9 @@ import { ProfileComponent } from './profile/profile/profile.component';
     RootviewComponent,
     HomeviewComponent,
     PostComponent,
-    ProfileComponent
+    ProfileComponent,
+    StatComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
